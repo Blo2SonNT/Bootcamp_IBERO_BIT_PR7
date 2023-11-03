@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: rgb(240, 229, 227);
+    background: linear-gradient(103deg, rgba(240, 229, 227, 1) 0%, rgba(222, 229, 239, 1) 23%, rgba(230, 235, 228, 1) 49%, rgba(239, 241, 220, 1) 77%, rgba(231, 239, 224, 1) 100%);
+}
+
+.logoOutlook {
+    width: 170px;
+    margin-bottom: 20px;
+}
+
+.logoMicrosoft {
+    width: 110px;
+}
+
+.tituloContenido {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+}
+
+.cajaFormulario {
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid #818c94;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 40px;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.6);
+}
