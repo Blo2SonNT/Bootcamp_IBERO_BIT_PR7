@@ -31,31 +31,38 @@
         <section>
             <img class="logoOutlook" src="img/outlook.png" alt="">
         </section>
-        <main class="cajaFormulario">
+        <main class="cajaFormulario anchoCaja">
             <section>
                 <img class="logoMicrosoft" src="img/logo.svg" alt="" id="imagen">
             </section>
-            <div class="tituloContenido">Iniciar sesión</div>
-            <div>Continuar en Outlook</div>
+            <div class="cajaTitulos">
+                <div class="tituloContenido">Iniciar sesión</div>
+                <div class="texto1 textoSize">Continuar en Outlook</div>
+            </div>
             <form>
-                <input type="text" placeholder="Correo electrónico, teléfono o Skype">
-                <input type="password">
-                <div>¿No tiene una cuenta? <a href="#">Cree una.</a></div>
-                <div>
-                    <a href="#">Iniciar sesión con una llave de seguridad</a>
+                <input class="iCorreo" type="text" placeholder="Correo electrónico, teléfono o Skype">
+                <input type="password" class="iPass">
+                <div class="textoSize enlace1">¿No tiene una cuenta? <a href="#" class="enlace">Cree una.</a></div>
+                <div class="cajaEnlaces">
+                    <a class="textoSize enlaceOculto" href="#">Iniciar sesión con una llave de seguridad</a>
+                    <a class="textoSize enlace" href="#">¿No puede acceder a su cuenta?</a>
                 </div>
-                <button type="button">Siguiente</button>
+                <div class="cajaBoton">
+                    <button type="button" class="btnSiguiente">Siguiente</button>
+                </div>
             </form>
         </main>
-        <section>
-            <img src="img/llave.svg" alt="">
-            <div>
+        <section class="cajaLlave anchoCaja">
+            <img src="img/llave.svg" class="llave" alt="">
+            <div class="optLlave">
                 Opciones de inicio de sesión
             </div>
         </section>
     </div>
     <footer>
-        <a href="#">Términos de uso Privacidad y cookies ...</a>
+        <a href="#">Términos de uso</a>
+        <a href="#">Privacidad y cookies</a>
+        <a href="#" class="puntos">...</a>
     </footer>
 </body>
 
