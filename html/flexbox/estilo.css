@@ -1,0 +1,110 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cap {
+    width: 30%;
+}
+
+.cajaPrinciapl {
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    height: 400px;
+    align-items: end;
+    justify-content: end;
+}
+
+.posicion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.listaEnlaces {
+    list-style: none;
+    display: flex;
+}
+
+.enlaceFooter {
+    padding: 0 15px;
+}
+
+.linea {
+    height: 1px;
+    background-color: #aaaaab;
+    width: 70%;
+}
+
+.lineaFlex {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.facebookFlex {
+    display: flex;
+}
+
+.imgLogo {
+    width: 40%;
+}
+
+.caja1 {
+    width: 580px;
+}
+
+.caja2 {
+    width: 100%;
+}
+
+.formulario {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.lineaFlexFormulario {
+    height: 1px;
+    background-color: #aaaaab;
+    margin: 50px 0;
+}
+
+.listaEnlaces {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 12%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.listaEnlaces li {
+    padding: 2px 0;
+}
+
+.listaEnlaces li a {
+    color: #8a8d91;
+    white-space: nowrap;
+    padding: 0 10px;
+    font-size: .8rem;
+}
+
+input:focus {
+    border: 1px solid #1b74e4;
+    box-shadow: 0 0 0 2px #e7f3ff;
+}
+
+input:focus-visible {
+    outline: 0;
+}
