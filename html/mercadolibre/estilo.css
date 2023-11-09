@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap');
+:root {
+    --color-azul: #151d27;
+    --color-blanco: #fff;
+    --color-azul-2: #263241;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.composicionLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.barra {
+    background: var(--color-azul);
+    display: flex;
+    justify-content: space-around;
+}
+
+.composicionLogo :nth-child(2) {
+    width: 40px;
+}
+
+.composicionLogo :nth-child(3) {
+    width: 130px;
+    margin-left: 15px;
+}
+
+.btnNav {
+    background-color: transparent;
+    border: none;
+    color: var(--color-blanco);
+    font-size: 16px;
+    white-space: nowrap;
+    height: 80px;
+    padding: 0 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.flexNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.posicionIcono1 {
+    transform: rotate(90deg);
+    margin-right: 5px;
+}
+
+.posicionIcono2 {
+    margin-right: 5px;
+}
+
+.busqueda {
+    background: var(--color-azul-2);
+    height: 40px;
+    border: none;
+    width: 370px;
+    padding-left: 15px;
+    margin-left: 30px;
+}
+
+.busqueda::placeholder {
+    color: #b4b2b2;
+    font-style: italic;
+}
+
+.lupaRelatva {
+    position: relative;
+    width: 16px;
+    height: 16px;
+}
+
+.lupa {
+    position: absolute;
+    color: #b4b2b2;
+    left: -25px;
+}
+
+.posicionIcono3 {
+    color: var(--color-blanco);
+    margin-right: 5px;
+    font-size: .8rem;
+}
+
+.menuHamburguesa {
+    color: var(--color-blanco);
+    margin-right: 15px;
+    font-size: 1.2rem;
+    display: none;
+}
+
+.ejemplo1 {
+    width: 200px;
+    height: 200px;
+    background-color: #00ffff;
+}
+
+@media (max-width: 992px) {
+    .menuHamburguesa {
+        display: block;
+    }
+    .flexNav {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+    .ejemplo1 {
+        background-color: #1e00ff;
+    }
+}
