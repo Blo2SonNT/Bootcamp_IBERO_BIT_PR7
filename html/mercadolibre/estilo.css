@@ -103,13 +103,44 @@
     background-color: #00ffff;
 }
 
-@media (max-width: 992px) {
+.lupaResponsive {
+    display: none;
+}
+
+@media (max-width: 1280px) {
     .menuHamburguesa {
         display: block;
     }
     .flexNav {
         display: none;
     }
+    .fixresponsive {
+        display: block;
+    }
+    .lupaResponsive {
+        display: block;
+    }
+    .barra {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .btnConectar {
+        display: none;
+    }
+}
+
+.btnOferta:hover {
+    border: 3px solid #dba910;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.btnJuegos:hover {
+    border: 3px solid #8a10db;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
 }
 
 @media (min-width: 769px) and (max-width: 1000px) {
