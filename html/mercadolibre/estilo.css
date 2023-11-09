@@ -20,7 +20,8 @@
 .barra {
     background: var(--color-azul);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 .composicionLogo :nth-child(2) {
