@@ -41,6 +41,8 @@
     height: 80px;
     padding: 0 20px;
     font-family: 'Open Sans', sans-serif;
+    border-top: 3px solid transparent;
+    transition: all .5s;
 }
 
 .flexNav {
@@ -136,11 +138,24 @@
     border-bottom: 0;
 }
 
+.btnOferta:hover i.posicionIcono1 {
+    color: #dba910;
+}
+
+.btnOferta:hover i.flecha,
+.btnJuegos:hover i.flecha {
+    transform: rotate(180deg);
+}
+
 .btnJuegos:hover {
     border: 3px solid #8a10db;
     border-left: 0;
     border-right: 0;
     border-bottom: 0;
+}
+
+.btnJuegos:hover i.posicionIcono2 {
+    color: #8a10db;
 }
 
 @media (min-width: 769px) and (max-width: 1000px) {
