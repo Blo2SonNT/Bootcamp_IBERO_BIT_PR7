@@ -210,3 +210,42 @@ body {
         grid-column: 1 / 3;
     }
 }
+
+.tituloCaja {
+    color: #fff;
+}
+
+.cajaJuegos {
+    display: flex;
+    flex-direction: column;
+}
+
+.juegosFlex {
+    display: flex;
+    padding: 20px 50px;
+}
+
+.juegosFlex img {
+    width: 185px;
+    margin: 0 20px;
+}
+
+.cajaJuegosgrid {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.juegosGrid {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(5, 185px);
+}
+
+.juegosGrid img {
+    width: 100%;
+}
+
+.popo {
+    display: flex;
+    justify-content: center;
+}
