@@ -1,0 +1,32 @@
+[data-verde] {
+    background-color: #4bff04;
+}
+
+[data-grande] {
+    height: 50px;
+}
+
+[data-muestrame='pepeSi'] {
+    display: block;
+}
+
+[data-muestrame='pepeNo'] {
+    display: none;
+}
+
+[type='submit'] {
+    border: solid 1px red !important;
+}
+
+.x [type='password'] {
+    background-color: aqua;
+}
+
+@font-face {
+    font-family: 'letra_pepe';
+    src: url(fonts/Fatal_Fighter.otf);
+}
+
+h1 {
+    font-family: 'letra_pepe';
+}
