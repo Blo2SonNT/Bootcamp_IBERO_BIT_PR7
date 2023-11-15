@@ -46,6 +46,11 @@
     font-size: 16px;
 }
 
+.textoLista {
+    font-size: 20px;
+    padding-right: 80px;
+}
+
 .encabezadoBanner {
     font-size: 48px;
     max-width: 672px;
@@ -77,4 +82,49 @@
 
 .objetoPerdido {
     background-color: #007DFF;
+}
+
+.bg-didi-naranja {
+    background-color: #FF7D41;
+}
+
+.color-texto-didi {
+    color: #FF7D41;
+}
+
+.btnDescarga {
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 20px 25px -5px rgba(255, 125, 65, .3), 0 8px 10px -6px rgba(255, 125, 65, .3);
+}
+
+.btnDescarga:hover {
+    background-color: #C2410C;
+}
+
+.bg-gris-didi {
+    background-color: #E7E7E7;
+}
+
+.botonEspecial {
+    margin-top: 96px;
+}
+
+.opcionesNav {
+    background-color: #0F1419;
+}
+
+.opcionesFooter {
+    font-size: 18px;
+}
+
+.opcionesFooter:hover {
+    color: #cac8c8 !important;
+}
+
+.cajaPaises {
+    padding-right: 550px;
+}
+
+.separador {
+    height: 3px;
+    background-color: #fff;
 }
