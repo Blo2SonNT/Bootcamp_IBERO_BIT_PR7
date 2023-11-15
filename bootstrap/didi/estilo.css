@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'Aspira-didi-regular';
+    src: url(font/aspira.woff2);
+}
+
+@font-face {
+    font-family: 'Aspira-didi-bold';
+    src: url(font/aspira-bold.otf);
+}
+
+.iconoMenu {
+    width: 24px;
+}
+
+.enlaceNavbar {
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    font-family: 'Aspira-didi-regular';
+    white-space: nowrap;
+}
+
+.bg-gris {
+    background-color: #e5e7eb;
+}
+
+.banner {
+    height: 640px;
+    background-image: url(img/banner1.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position-y: -210px;
+}
+
+.letraDidi {
+    font-family: 'Aspira-didi-regular';
+}
+
+.letraDidiBold {
+    font-family: 'Aspira-didi-bold';
+}
+
+.migaPan,
+.textoObjetos {
+    font-size: 16px;
+}
+
+.encabezadoBanner {
+    font-size: 48px;
+    max-width: 672px;
+    line-height: 50px;
+    font-weight: 600;
+}
+
+.cajaBannerTexto {
+    margin-top: 95px;
+}
+
+.btnBanner {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.btnBanner:hover {
+    background-color: #000 !important;
+    color: #fff;
+}
+
+.iconoSeccion2 {
+    font-size: 40px;
+}
+
+.cajaMentiras1 {
+    padding: 85px;
+}
+
+.objetoPerdido {
+    background-color: #007DFF;
+}
