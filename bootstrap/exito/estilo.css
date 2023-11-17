@@ -9,12 +9,77 @@
     min-width: none;
 }
 
-@media (min-width: 992px) {
-    .textoHeader {
-        padding-left: 170px;
-    }
+.btnModal1 {
+    white-space: nowrap;
+    font-size: 14px;
 }
 
 .bg-amarillo {
     background-color: var(--amarillo-pollito);
+}
+
+.logoExito {
+    width: 80px;
+}
+
+.iconNav {
+    font-size: 1.4rem;
+}
+
+.lineaAmarilla {
+    transform: translateY(10px);
+    width: 80px;
+    height: 6px;
+    background-color: var(--amarillo-pollito);
+}
+
+.btnOpcionesNav2 {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 50px !important;
+    padding-bottom: 0;
+}
+
+.btnNav2 {
+    font-size: 20px !important;
+}
+
+.iBuscador {
+    width: 100% !important;
+}
+
+@media (min-width: 992px) {
+    .iBuscador {
+        width: 732px !important;
+    }
+}
+
+.btnUsuario {
+    white-space: nowrap;
+}
+
+@media (max-width: 992px) {
+    .cajaEspecial {
+        width: 100%;
+    }
+    .btnModal1 {
+        width: 150px;
+    }
+}
+
+.cajaBuscador {
+    flex-wrap: nowrap;
+}
+
+.banner1 {
+    width: 95.3% !important;
+}
+
+.banner2 {
+    min-height: 88%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(img/banner2.webp);
 }
