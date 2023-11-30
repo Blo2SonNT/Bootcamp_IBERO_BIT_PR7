@@ -1,0 +1,260 @@
+.btnOferta {
+    animation: miAnimacionLindaBonitaCochambrosaPeroPEYE 10s infinite;
+}
+
+@keyframes miAnimacionLindaBonitaCochambrosaPeroPEYE {
+    0% {
+        transform: translateY(0px);
+        background-color: aqua;
+    }
+    10% {
+        transform: translateY(100px);
+        background-color: rgb(34, 255, 0);
+    }
+    30% {
+        transform: translateX(-100px);
+        background-color: rgb(255, 145, 0);
+    }
+    50% {
+        transform: scale(2);
+        background-color: rgb(115, 0, 255);
+    }
+    70% {
+        transform: translateY(-100px);
+        background-color: rgb(234, 255, 0);
+    }
+    90% {
+        transform: translateX(100px);
+        background-color: rgb(0, 187, 255);
+    }
+    100% {
+        transform: scale(1);
+        background-color: rgb(14, 14, 14);
+    }
+}
+
+.btn-53,
+.btn-53 *,
+.btn-53 :after,
+.btn-53 :before,
+.btn-53:after,
+.btn-53:before {
+    border: 0 solid;
+    box-sizing: border-box;
+}
+
+.btn-53 {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: button;
+    background-color: #000;
+    background-image: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 0;
+    -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+    padding: 0;
+}
+
+.btn-53:disabled {
+    cursor: default;
+}
+
+.btn-53:-moz-focusring {
+    outline: auto;
+}
+
+.btn-53 svg {
+    display: block;
+    vertical-align: middle;
+}
+
+.btn-53 [hidden] {
+    display: none;
+}
+
+.btn-53 {
+    border: 1px solid;
+    border-radius: 999px;
+    box-sizing: border-box;
+    display: block;
+    font-weight: 900;
+    overflow: hidden;
+    padding: 1.2rem 3rem;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.btn-53 .original {
+    background: #fff;
+    color: #000;
+    display: grid;
+    inset: 0;
+    place-content: center;
+    position: absolute;
+    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.btn-53:hover .original {
+    transform: translateY(100%);
+}
+
+.btn-53 .letters {
+    display: inline-flex;
+}
+
+.btn-53 span {
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.2s;
+}
+
+.btn-53 span:nth-child(2n) {
+    transform: translateY(15px);
+}
+
+.btn-53:hover span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-53:hover span:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.btn-53:hover span:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.btn-53:hover span:nth-child(4) {
+    transition-delay: 0.3s;
+}
+
+.btn-53:hover span:nth-child(5) {
+    transition-delay: 0.4s;
+}
+
+.btn-53:hover span:nth-child(6) {
+    transition-delay: 0.5s;
+}
+
+
+/*? Aqui empieza el estilo de las cartas sección 1*/
+
+.cartaAnimacion {
+    height: 500px;
+    border-radius: 4px;
+    background: #212121;
+    display: flex;
+    gap: 5px;
+    padding: .4em;
+}
+
+.cartaAnimacion p {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .5s;
+    background: #212121;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fondo1 {
+    background-image: url(https://canaltrece.com.co/uploads/newsarticle/5f94ba7cd63744d3a4617e4fd812ac63/conciertos-en-colombia-2023.jpeg) !important;
+}
+
+.fondo2 {
+    background-image: url(https://s3.amazonaws.com/rtvc-assets-senalcolombia.gov.co/s3fs-public/field/image/conciertos-febrero-2023-portada.jpg) !important;
+}
+
+.fondo3 {
+    background-image: url(https://cdn-3.expansion.mx/dims4/default/eb121a7/2147483647/strip/true/crop/1260x833+0+0/resize/1200x793!/format/webp/quality/60/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F79%2F82%2F447e001b42a6ae180281dee501e0%2Fistock-1330424071.jpg) !important;
+}
+
+.cartaAnimacion p:hover {
+    flex: 4;
+}
+
+.cartaAnimacion p span {
+    min-width: 14em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: .1em;
+}
+
+.cartaAnimacion p:hover span {
+    transform: rotate(0);
+}
+
+
+/* ----------------------------------------------------------------*/
+
+
+/* Estilos Input*/
+
+.input {
+    color: #fff;
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+    border-bottom: var(--border-height) solid var(--border-before-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-border {
+    position: absolute;
+    background: var(--border-after-color);
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.input:focus {
+    outline: none;
+}
+
+.input:focus+.input-border {
+    width: 100%;
+}
+
+.form-control-ui {
+    position: relative;
+    --width-of-input: 300px;
+}
+
+.input-alt {
+    font-size: 1.2rem;
+    padding-inline: 1em;
+    padding-block: 0.8em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-border-alt {
+    height: 3px;
+    background: linear-gradient(90deg, #FF6464 0%, #FFBF59 50%, #47C9FF 100%);
+    transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1.00);
+}
+
+.input-alt:focus+.input-border-alt {
+    width: 100%;
+}
