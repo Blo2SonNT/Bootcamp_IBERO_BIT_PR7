@@ -1,0 +1,70 @@
+<!-- 
+    [1, "text", true, [1,2], {llave: valor, llave2: valor}] 
+    cSpell:disable
+-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <section class="container mt-5">
+        <form id="formulario">
+
+            <div class="mb-3">
+                <label for="elementoBusqueda" class="form-label">Agregar despues de</label>
+                <input type="text" class="form-control" id="elementoBusqueda">
+            </div>
+
+            <div class="mb-3">
+                <label for="elementoNuevo" class="form-label">Ingrese algo</label>
+                <input type="text" class="form-control" id="elementoNuevo">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+
+
+        <ul id="listaDeNotas" class="list-group"></ul>
+    </section>
+
+
+    <script src="code.js"></script>
+    <script>
+        // let productos = ["leche", "chocolates", "jabon"]
+        // console.log(productos);
+
+        // //push - ingresar al final
+        // productos.push("papitas", "salsas", "arroz")
+        // console.log(productos);
+
+        // //unshift - ingresar al principio
+        // productos.unshift("peras", "manzanas", "cigarros")
+        // console.log(productos);
+
+        // //pop - eliminar al final
+        // productos.pop()
+        // console.log(productos);
+
+        // //shift - eliminar al principio
+        // productos.shift()
+        // console.log(productos);
+
+        // //indexOf - coincidencia exacta
+        // console.log(productos.indexOf("jabon"))
+
+        // //splice - posicion del elemento en array
+        // productos.splice(productos.indexOf("jabon") + 1, 0, "chocosos", "coca-cola", "vive100")
+        // console.log(productos);
+
+        // console.log(productos.length)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container mt-5">
+        <h1 class="text-center my-5">Lista de compras</h1>
+        <form id="formulario">
+            <div class="my-2">
+                <label for="txtBusqueda">Necesita un item en orden especifico?</label>
+                <input class="form-control" type="text" placeholder="gabriela" id="txtBusqueda">
+            </div>
+
+            <div class="my-2">
+                <label for="txtNuevoElemento">Ingrese el nuevo producto</label>
+                <input type="text" class="form-control" placeholder="pepito" id="txtNuevoElemento">
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-primary my-4" type="submit">Agregar a la lista</button>
+                <button class="btn btn-danger my-4" type="button" id="btnBorrarTodo">Borrar toda la lista</button>
+            </div>
+        </form>
+    </section>
+
+
+    <section class="container">
+        <ol id="listaElementos" class="list-group">
+
+        </ol>
+    </section>
+
+
+    <!-- MODAL -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <section>
+                        <form id="formEditar">
+                            <input type="text" id="posicionAActualizar">
+                            <input type="text" id="valorNuevo" class="form-control" placeholder="Ingrese el valor nuevo del elemento">
+                            <button type="submit" class="btn btn-danger">Actualizar valor</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="code.js"></script>
+
+</body>
+
+</html>
