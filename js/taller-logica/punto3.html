@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <form id="formulario">
+            <div class="mb-3">
+                <label for="edadUsuario" class="form-label">Ingrese la edad</label>
+                <input type="text" class="form-control" id="edadUsuario">
+            </div>
+            <div class="mb-3">
+                <label for="generoUsuario" class="form-label">Seleccione su genero</label>
+                <select class="form-control" id="generoUsuario">
+                    <option>Seleccione uno...</option>
+                    <option value="H">Hombre</option>
+                    <option value="M">Mujer</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </form>
+        <h1 id="resultado"></h1>
+    </div>
+
+    <script>
+        let formularioPizzeria = document.querySelector("#formulario")
+        formularioPizzeria.addEventListener("submit", (evento) => {
+            evento.preventDefault()
+            let edad = evento.target.edadUsuario.value
+            let genero = evento.target.generoUsuario.value
+
+            if (edad <= 10 || edad >= 18) {
+                if (edad <= 10) {
+                    if (genero == 'M') {
+                        alert("Gana un juguito y una pizza hawayana")
+                    } else if (genero == "H") {
+                        alert("Gana juguito y pizza de 3 carnes")
+                    } else {
+                        alert("Es rarito y no gano nada")
+                    }
+                } else if (edad >= 18) {
+                    if (genero == "M") {
+                        alert("Gana un pola y una pizza hawayana")
+                    } else if (genero == "H") {
+                        alert("Gana pola y pizza de 3 carnes")
+                    } else {
+                        alert("Es raro y no gano nada")
+                    }
+                }
+            } else {
+                alert("No gana nada, primero crezca")
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>
