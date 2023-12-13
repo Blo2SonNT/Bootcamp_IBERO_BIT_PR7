@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body class="bg-danger">
+
+    <div class="container">
+        <ul class="list-group" id="listaDePlatos">
+            <li class="list-group-item">hamburguesa</li>
+            <li class="list-group-item">pasta carbonara</li>
+            <li class="list-group-item">pizza</li>
+            <li class="list-group-item">jugo de maracuya</li>
+            <li class="list-group-item">arroz de leche</li>
+        </ul>
+        <h3 class="mt-5 text-center">Hacer pedido</h3>
+        <form id="formPedido" class="mt-2">
+            <input type="text" id="nombrePlatoPedido" placeholder="Ingrese el nombre del plato que desea pedir" class="form-control">
+            <button type="submit" class="btn btn-warning w-100 mt-2 fw-bold">Agregar al pedido</button>
+        </form>
+
+        <h1 id="precioFinalCuenta"></h1>
+    </div>
+
+
+
+    <script>
+        let precioTotal = 0
+        document.querySelector("#formPedido").addEventListener("submit", (evento) => {
+            evento.preventDefault()
+            switch (evento.target.nombrePlatoPedido.value) {
+                case "hamburguesa":
+                    precioTotal = precioTotal + 15000
+                    break;
+                case "pasta carbonara":
+                    precioTotal = precioTotal + 20000
+                    break;
+                case "pizza":
+                    precioTotal = precioTotal + 45600
+                    break;
+                case "jugo de maracuya":
+                    precioTotal = precioTotal + 3000
+                    break;
+                case "arroz de leche":
+                    precioTotal = precioTotal + 3000
+                    break;
+                case "pagar":
+                    document.querySelector("#precioFinalCuenta").innerHTML = `Precio total a pagar es: ${precioTotal}`
+                    break
+                default:
+                    alert("El producto solicitado no existe")
+                    break;
+            }
+        })
+    </script>
+
+</body>
+
+</html>

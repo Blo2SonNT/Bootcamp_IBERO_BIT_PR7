@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body class="bg-secondary">
+
+    <div class="container">
+        <ul class="list-group" id="listaDePlatos"> </ul>
+        <h3 class="mt-5 text-center">Hacer pedido</h3>
+        <form id="formPedido" class="mt-2">
+            <input type="text" id="nombrePlatoPedido" placeholder="Ingrese el nombre del plato que desea pedir" class="form-control">
+            <button type="submit" class="btn btn-warning w-100 mt-2 fw-bold">Agregar al pedido</button>
+        </form>
+
+        <h1 id="precioFinalCuenta"></h1>
+    </div>
+
+
+
+    <script>
+        let array_platos = [
+            "hamburguesa",
+            "pasta carbonara",
+            "pizza",
+            "jugo de maracuya",
+            "arroz de leche"
+        ]
+
+        let array_precios = [
+            15000,
+            20000,
+            45600,
+            3000,
+            3000
+        ]
+
+        let precioTotal = 0
+
+        let divLista = document.querySelector("#listaDePlatos")
+        array_platos.forEach(platillo => {
+            divLista.innerHTML += `<li class="list-group-item">${platillo}</li>`
+        });
+
+        document.querySelector("#formPedido").addEventListener("submit", (evento) => {
+            evento.preventDefault()
+            if (evento.target.nombrePlatoPedido.value != "pagar") {
+                let posicionPlato = array_platos.indexOf(evento.target.nombrePlatoPedido.value)
+                if (posicionPlato != -1) {
+                    precioTotal = precioTotal + array_precios[posicionPlato]
+                    console.log(precioTotal)
+                } else {
+                    alert("El plato ingresado no existe")
+                }
+            } else {
+                document.querySelector("#precioFinalCuenta").innerHTML = `El precio total a pagar es: ${precioTotal}`
+            }
+        })
+    </script>
+
+</body>
+
+</html>

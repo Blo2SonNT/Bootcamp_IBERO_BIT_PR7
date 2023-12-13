@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <form id="formulario">
+            <div class="mb-3">
+                <label for="nota" class="form-label">Ingrese la nota final del estudiante</label>
+                <input type="text" class="form-control" id="nota">
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </form>
+        <h1 id="resultado"></h1>
+    </div>
+    <script>
+        let formularioHTML = document.querySelector("#formulario")
+        formularioHTML.addEventListener('submit', (evento) => {
+            evento.preventDefault()
+            let valor_matricula = 1000000
+            let nota_final = parseFloat(evento.target.nota.value)
+            let h1Resultado = document.querySelector("#resultado")
+            if (nota_final < 3) {
+                h1Resultado.innerHTML = `El valor de la matricula es ${valor_matricula}`
+            } else if (nota_final >= 3 && nota_final < 4) {
+                h1Resultado.innerHTML = `El valor de la matricula es ${valor_matricula * 0.95}`
+            } else if (nota_final >= 4) {
+                h1Resultado.innerHTML = `El valor de la matricula es ${valor_matricula * 0.50}`
+            } else if (nota_final > 5) {
+                h1Resultado.innerHTML = `La nota ingresada no es valida`
+            } else {
+                h1Resultado.innerHTML = `Coloque algo valido en el input`
+            }
+        })
+    </script>
+</body>
+
+</html>
