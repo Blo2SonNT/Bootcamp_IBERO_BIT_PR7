@@ -39,13 +39,15 @@
     }
 }
 
-.botonControl {
+.botonControlEstilo {
     background-color: #ececec;
     border-radius: 50%;
+    font-size: 1.3rem;
+    font-weight: bold;
     transition: .3s all;
 }
 
-.botonControl:hover {
+.botonControlEstilo:hover {
     background-color: var(--color3);
     color: var(--color2);
 }
