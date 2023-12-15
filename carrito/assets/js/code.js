@@ -17,3 +17,28 @@ botonesControlCantidad.forEach(botoncito => {
         h5Producto.innerHTML = cantidadActual
     })
 });
+
+
+
+document.querySelector('#btnBorrarCarro').addEventListener('click', () => {
+    Swal.fire({
+        title: "Esta seguro?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, vaciar carrito",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            //aquí va su proceso para borrar el carrito 🙃
+
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+            });
+        }
+    });
+})
