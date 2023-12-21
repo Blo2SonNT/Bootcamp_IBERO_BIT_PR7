@@ -42,3 +42,17 @@ document.querySelector('#btnBorrarCarro').addEventListener('click', () => {
         }
     });
 })
+
+
+//condicionales ternarios
+
+
+// if(nombre == "pepe"){
+//     alert("Hola pepe")
+// }else{
+//     alert("Fuera de mi pagina")
+// }
+
+
+
+// let resultado = (nombre == "pepe") ?  alert("Hola pepe") :  alert("Fuera de mi pagina")
