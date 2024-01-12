@@ -1,16 +1,22 @@
-const obtenerPokemones = async() => {
+const obtenerPokemones = async(urlAPI = 'https://pokeapi.co/api/v2/pokemon', busqueda = false) => {
     let htmlContenido = document.querySelector("#contenido")
+    htmlContenido.innerHTML = ''
     try {
-        let dataPokemones = await fetch('https://pokeapi.co/api/v2/pokemon')
+        let infoPokemones
+        let dataPokemones = await fetch(urlAPI)
         dataPokemones = await dataPokemones.json()
-        let arrPokemones = dataPokemones.results
-        const infoPokemones = []
+        if (!busqueda) {
+            let arrPokemones = dataPokemones.results
+            infoPokemones = []
 
-        for (const data of arrPokemones) {
-            let info = await obtenerInfoPokemon(data.url)
-            infoPokemones.push(info)
+            for (const data of arrPokemones) {
+                let info = await obtenerInfoPokemon(data.url)
+                infoPokemones.push(info)
+            }
+            console.log('infoPokemones:', infoPokemones)
+        } else {
+            infoPokemones = [dataPokemones]
         }
-        console.log('infoPokemones:', infoPokemones)
 
         infoPokemones.forEach(pokemonn => {
             htmlContenido.innerHTML += `
@@ -24,6 +30,19 @@ const obtenerPokemones = async() => {
                 </div>
                 `
         });
+
+        if (!busqueda) {
+            let disabledPREV = (dataPokemones.previous == null) ? 'disabled' : ''
+            let disabledNEXT = (dataPokemones.next == null) ? 'disabled' : ''
+            document.querySelector("#cajaPaginas").innerHTML = `
+                <button class="btn btn-warning fw-bold" type="button" ${disabledPREV} data-url="${dataPokemones.previous}">Anterior</button>
+                <button class="btn btn-warning fw-bold" type="button" ${disabledNEXT} data-url="${dataPokemones.next}">Siguiente</button>
+            `
+            asignarEventos()
+
+        } else {
+            document.querySelector("#cajaPaginas").innerHTML = ''
+        }
 
     } catch (error) {
         htmlContenido.innerHTML = `
@@ -47,3 +66,23 @@ async function obtenerInfoPokemon(urlPokemon) {
         console.error("PASO ALGO -> ", error)
     }
 }
+
+function asignarEventos() {
+    let botones = document.querySelectorAll("[data-url]")
+    botones.forEach(boton => {
+        boton.addEventListener("click", (evento) => {
+            evento.preventDefault()
+            let urlConsulta = evento.target.dataset.url
+            obtenerPokemones(urlConsulta)
+        })
+    });
+}
+
+document.querySelector("#formularioBusqueda").addEventListener("submit", (evento) => {
+    evento.preventDefault()
+    if (evento.target.txtBusqueda.value != '') {
+        obtenerPokemones(`https://pokeapi.co/api/v2/pokemon/${evento.target.txtBusqueda.value}`, true)
+    } else {
+        obtenerPokemones()
+    }
+})
