@@ -1,0 +1,45 @@
+.cardBanner {
+    border: 2px solid #000;
+    border-radius: 15px;
+    padding: 20px;
+    transition: .3s ease-in;
+    transition: .5s ease-out;
+}
+
+.cardBanner i,
+.cardBanner div {
+    transition: 1s ease-in;
+    transition: .2s ease-out;
+}
+
+.card1:hover,
+.card1:hover i,
+.card1:hover div {
+    background-color: #20acd0;
+    color: #fff;
+    border-color: #20acd0;
+}
+
+.card2:hover,
+.card2:hover i,
+.card2:hover div {
+    background-color: #eed21b;
+    color: #fff;
+    border-color: #eed21b;
+}
+
+.card3:hover,
+.card3:hover i,
+.card3:hover div {
+    background-color: #53ce42;
+    color: #fff;
+    border-color: #53ce42;
+}
+
+.card4:hover,
+.card4:hover i,
+.card4:hover div {
+    background-color: #8937ac;
+    color: #fff;
+    border-color: #8937ac;
+}
