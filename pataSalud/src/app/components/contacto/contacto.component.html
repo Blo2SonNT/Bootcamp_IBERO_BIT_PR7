@@ -3,23 +3,41 @@
         <h1 class="fuente-negocio text-center">Dejanos ayudarte!</h1>
         <div class="heading text-center">Diligencia los siguientes datos y nos colocaremos en contacto lo mas pronto posible
         </div>
-        <form class="form" action="">
+        <form class="form" [formGroup]="contactoForm" (ngSubmit)="registrarContacto()">
             <div class="input-field">
-                <input required="" autocomplete="off" type="text" name="text" id="nombre" />
+                <input required="" autocomplete="off" type="text" name="text" id="nombre" formControlName="nombre" />
                 <label for="nombre">Nombres y apellidos</label>
             </div>
+            <!-- A PARTIR DE ANGULAR 16 para atras -->
+            <div class="fw-bold text-danger" *ngIf="contactoForm.get('nombre')?.hasError('required') && contactoForm.get('nombre')?.touched">El nombre es obligatorio</div>
+            <div class="fw-bold text-danger" *ngIf="contactoForm.get('nombre')?.hasError('pattern') && contactoForm.get('nombre')?.touched">El nombre no es valido</div>
             <div class="input-field">
-                <input required="" autocomplete="off" type="email" name="email" id="correo" />
+                <input required="" autocomplete="off" type="email" name="email" formControlName="correo" id="correo" />
                 <label for="correo">Correo</label>
             </div>
+            <div class="fw-bold text-danger" *ngIf="contactoForm.get('correo')?.hasError('required') && contactoForm.get('correo')?.touched">El correo es obligatorio</div>
+            <div class="fw-bold text-danger" *ngIf="contactoForm.get('correo')?.hasError('minlength') && contactoForm.get('correo')?.touched">El correo no es valido</div>
             <div class="input-field">
-                <input required="" autocomplete="off" type="text" name="text" id="telefono" />
+                <input required="" autocomplete="off" type="text" name="text" id="telefono" formControlName="telefono" />
                 <label for="telefono">Teléfono</label>
             </div>
+            <!-- A PARTIR DE ANGULAR 17 para delante-->
+            @if(contactoForm.get('telefono')?.hasError('required') && contactoForm.get('telefono')?.touched){
+            <div class="fw-bold text-danger">El teléfono es obligatorio</div>
+            } @if(contactoForm.get('telefono')?.hasError('pattern') && contactoForm.get('telefono')?.touched){
+
+            <div class="fw-bold text-danger">El teléfono no es valido</div>
+            }
+
             <div class="input-field">
-                <input required="" autocomplete="off" type="text" name="text" id="mascota" />
+                <input required="" autocomplete="off" type="text" name="text" id="mascota" formControlName="nombre_mascota" />
                 <label for="mascota">Nombre de tu mascota</label>
             </div>
+            @if(contactoForm.get('nombre_mascota')?.hasError('required') && contactoForm.get('nombre_mascota')?.touched){
+            <div class="fw-bold text-danger">El nombre de la mascota es obligatorio</div>
+            } @if(contactoForm.get('nombre_mascota')?.hasError('pattern') && contactoForm.get('nombre_mascota')?.touched){
+            <div class="fw-bold text-danger">El nombre de la mascota no es valido</div>
+            }
             <div class="btn-container d-flex justify-content-between">
                 <button class="btn2">
                     <div>ENVIAR</div>
