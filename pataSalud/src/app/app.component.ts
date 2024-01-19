@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { BarraNavegacionComponent } from './components/barra-navegacion/barra-navegacion.component';
@@ -11,7 +11,8 @@ import { PiePaginaComponent } from './components/pie-pagina/pie-pagina.component
     CommonModule,
     RouterOutlet,
     BarraNavegacionComponent,
-    PiePaginaComponent
+    PiePaginaComponent,
+
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

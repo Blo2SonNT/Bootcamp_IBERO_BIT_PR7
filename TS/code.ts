@@ -47,6 +47,7 @@ interface Iregistro{
     edad: number
 }
 
+
 let persona: Iregistro = {nombre: "fulano", apellido: "perez", edad: 12}
 
 function registro(dataPersona:Iregistro): any {
