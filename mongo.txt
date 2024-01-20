@@ -1,0 +1,454 @@
+Atlas atlas-sfsexj-shard-0 [primary] test> show dbs
+TenisDuv        40.00 KiB
+ejercicio      156.00 KiB
+empanadasRene   80.00 KiB
+personajesSAO  104.00 KiB
+saoAPI          40.00 KiB
+veterinaria    240.00 KiB
+admin          372.00 KiB
+local            6.30 GiB
+Atlas atlas-sfsexj-shard-0 [primary] test> use veterinaria
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.insertOne({ nombre: "Ruffy", edad: 19, raza:"Mainecoon", vacunado: true })
+{
+  acknowledged: true,
+  insertedId: ObjectId('65ab2403274046a8470b5b54')
+}
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find()
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'Mainecoon',
+    vacunado: true
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.insertMany( [ {nombre: "Chester"}, {nombre: "Caramelo", edad: 7}, {nombre: "Chiqui", edad: 22, raza: "Criollo"} ] )
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65ab24e7274046a8470b5b55'),
+    '1': ObjectId('65ab24e7274046a8470b5b56'),
+    '2': ObjectId('65ab24e7274046a8470b5b57')
+  }
+}
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find()
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'Mainecoon',
+    vacunado: true
+  },
+  { _id: ObjectId('65ab24e7274046a8470b5b55'), nombre: 'Chester' },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Caramelo',
+    edad: 7
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.collection.updateOne(
+...   { edad: 7 },
+...   { $set: { nombre: "caramelo", raza: "beagle" } }
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.updateOne( { edad: 7 }, { $set: { nombre: "caramelo", raza: "beagle" } } );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find()
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'Mainecoon',
+    vacunado: true
+  },
+  { _id: ObjectId('65ab24e7274046a8470b5b55'), nombre: 'Chester' },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'caramelo',
+    edad: 7,
+    raza: 'beagle'
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.updateOne( { _id: ObjectId('65ab2403274046a8470b5b54') }, { $set: { edad: 7 } } );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find()
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 7,
+    raza: 'Mainecoon',
+    vacunado: true
+  },
+  { _id: ObjectId('65ab24e7274046a8470b5b55'), nombre: 'Chester' },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'caramelo',
+    edad: 7,
+    raza: 'beagle'
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.updateOne( { edad: 7 }, { $set: { nombre: "caramelo", raza: "beagle" } } );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find()
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'caramelo',
+    edad: 7,
+    raza: 'beagle',
+    vacunado: true
+  },
+  { _id: ObjectId('65ab24e7274046a8470b5b55'), nombre: 'Chester' },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'caramelo',
+    edad: 7,
+    raza: 'beagle'
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.updateOne( { _id: ObjectId('65ab2403274046a8470b5b54') }, { $set: { nombre: "Ruffy", edad: 19 }})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find()
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle',
+    vacunado: true
+  },
+  { _id: ObjectId('65ab24e7274046a8470b5b55'), nombre: 'Chester' },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'caramelo',
+    edad: 7,
+    raza: 'beagle'
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.updateOne( { _id: ObjectId('65ab2403274046a8470b5b54') }, { $set: { raza: "MaineCoon" }})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find()
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'MaineCoon',
+    vacunado: true
+  },
+  { _id: ObjectId('65ab24e7274046a8470b5b55'), nombre: 'Chester' },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'caramelo',
+    edad: 7,
+    raza: 'beagle'
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.updateMany( { edad: 7 }, { $set: { nombre: "Ruffy", edad: 19 }})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { edad: { $eq : 7 } } )
+
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { edad: { $eq : 19 } } )
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'MaineCoon',
+    vacunado: true
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { edad: { $gt : 7 } } )
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'MaineCoon',
+    vacunado: true
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle'
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { edad: { $gt : 19 } } )
+[
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { edad: { $gte : 19 } } )
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'MaineCoon',
+    vacunado: true
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle'
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { $and: [ { nombre:"Ruffy" }, {edad: 19} ] } )
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'MaineCoon',
+    vacunado: true
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { $and: [ { nombre:"Ruffy" }, {edad: {$gte: 7}} ] } )
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'MaineCoon',
+    vacunado: true
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { edad: { $lt : 19 } } )
+
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { edad: { $lte : 19 } } )
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'MaineCoon',
+    vacunado: true
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { $or: [ { nombre:"Ruffy" }, {edad: {$gte: 7}} ] } )
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'MaineCoon',
+    vacunado: true
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle'
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { $or: [ { nombre:"Ruffy" }, {edad: null} ] } )
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'MaineCoon',
+    vacunado: true
+  },
+  { _id: ObjectId('65ab24e7274046a8470b5b55'), nombre: 'Chester' },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { nombre: { $regex: /^ru/ } } )
+
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find( { nombre: { $regex: /^ru/i } } )
+[
+  {
+    _id: ObjectId('65ab2403274046a8470b5b54'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'MaineCoon',
+    vacunado: true
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.deleteOne( { nombre: { $regex: /^ru/i } } )
+{ acknowledged: true, deletedCount: 1 }
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find()
+[
+  { _id: ObjectId('65ab24e7274046a8470b5b55'), nombre: 'Chester' },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle'
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  }
+]
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.insertOne({ nombre: "Ruffy", edad: 19, raza:"Mainecoon", vacunado: true })
+{
+  acknowledged: true,
+  insertedId: ObjectId('65ab2cfa274046a8470b5b58')
+}
+Atlas atlas-sfsexj-shard-0 [primary] veterinaria> db.mascotas.find()
+[
+  { _id: ObjectId('65ab24e7274046a8470b5b55'), nombre: 'Chester' },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b56'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'beagle'
+  },
+  {
+    _id: ObjectId('65ab24e7274046a8470b5b57'),
+    nombre: 'Chiqui',
+    edad: 22,
+    raza: 'Criollo'
+  },
+  {
+    _id: ObjectId('65ab2cfa274046a8470b5b58'),
+    nombre: 'Ruffy',
+    edad: 19,
+    raza: 'Mainecoon',
+    vacunado: true
+  }
+]
