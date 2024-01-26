@@ -1,5 +1,10 @@
 const express = require('express');
+const conectarDB = require('./config/db');
+
+
+conectarDB()
 const app = express();
+app.use(express.json());
 
 
 app.use('/api', require('./routes/routes'))
