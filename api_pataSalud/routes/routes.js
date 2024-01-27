@@ -6,7 +6,7 @@ const medicamentosController = require('../controllers/medicamentosController')
 router.get('/consultar', mascotasController.consultarMascotas);
 router.get('/consultarMascota/:mascotaId', mascotasController.consultarUnaMascota);
 router.post('/crear', mascotasController.crearMascota)
-router.put('/actualizar', mascotasController.actualizarMascota)
+router.put('/actualizar/:mascotaId', mascotasController.actualizarMascota)
 router.delete('/eliminar/:mascotaId', mascotasController.elminarMascota)
 
 

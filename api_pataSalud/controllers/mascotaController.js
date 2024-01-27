@@ -37,8 +37,36 @@ exports.elminarMascota = async(req, res) => {
     }
 }
 
-exports.actualizarMascota = (req, res) => {
-    res.send("Estoy actualizando algo")
+exports.actualizarMascota = async(req, res) => {
+    try {
+
+        if (req.params.mascotaId.length == 24) {
+            let dataMascota = await MascotasModel.findById(req.params.mascotaId)
+
+            if (!dataMascota) {
+                res.status(404).send({ error: "No se ha encontrado la mascota" })
+                return
+            }
+            const { nombre, edad, raza, vacunado, diagnostico } = req.body
+
+            dataMascota.nombre = nombre
+            dataMascota.edad = edad
+            dataMascota.raza = raza
+            dataMascota.vacunado = vacunado
+            dataMascota.diagnostico = diagnostico
+
+            dataMascota = await MascotasModel.findOneAndUpdate({ _id: req.params.mascotaId }, dataMascota, { new: true })
+            res.json(dataMascota)
+        } else {
+            res.status(403).send({ error: "El id proporcionado no es valido" })
+        }
+
+
+
+    } catch (error) {
+        console.log('error:', error)
+        res.status(500).send({ error: "Ha ocurrido algo, comuníquese con el administrador" })
+    }
 }
 
 exports.consultarUnaMascota = async(req, res) => {
