@@ -56,36 +56,18 @@
         concentrado, medicamentos veterinarios, accesorios, productos de higiene y belleza y todo lo que necesitas para el cuidado de los animales de granja y actividades del agro. Recibe nuestros productos en casa gracias a nuestro sistema de delivery.
     </div>
 
+    <!-- <div class="card">
+        <img src="assets/img/productos/1.jpg" #imagen1 (click)="mostrarOtraImagen()" class="card-img-top" alt="...">
+    </div> -->
+
+
+
+
     <h3 class="fuente-negocio text-center h1 my-5">Productos destacados</h3>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
+        <div class="col" *ngFor="let imagen of productosDestacados()">
             <div class="card">
-                <img src="assets/img/productos/1.jpg" #imagen1 (click)="mostrarOtraImagen()" class="card-img-top" alt="...">
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="assets/img/productos/2.png" class="card-img-top" alt="...">
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="assets/img/productos/3.png" class="card-img-top" alt="...">
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="assets/img/productos/4.png" class="card-img-top" alt="...">
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="assets/img/productos/5.png" class="card-img-top" alt="...">
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="assets/img/productos/6.png" class="card-img-top" alt="...">
+                <img [src]="imagen.ruta" class="card-img-top" [alt]="imagen.desc">
             </div>
         </div>
     </div>

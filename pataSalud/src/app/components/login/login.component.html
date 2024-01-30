@@ -1,0 +1,85 @@
+<!-- <section class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <form class="row">
+                <div class="col-12 py-3">
+                    <label for="correo">Nombre de usuario</label>
+                    <input type="text" name="correo" placeholder="Usuario" id="correo" class="form-control">
+                </div>
+                <div class="col-12 py-3">
+                    <label for="clave">Contraseña</label>
+                    <input type="password" name="clave" placeholder="Contraseña" id="clave" class="form-control">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">INGRESAR</button>
+                </div>
+                <a href="tel:+573142539731">Llame aqui</a>
+            </form>
+        </div>
+    </div>
+</section> -->
+
+
+
+<section class="container">
+    <input type="text" [value]="nombre" (keydown)="capturarValor($event)">
+
+    <input type="text" (keydown.shift.t)="clickSaludo()">
+
+
+
+    <h1>{{ nombre }}</h1>
+    <button class="btn btn-dark" [disabled]="boton">Enviar</button>
+
+    <h3>{{ 'HOLA MUNDO'.repeat(4) }}</h3>
+    <h2>{{ 5+2 }}</h2>
+    <h4>{{"hola@correo.com"}}</h4>
+    <h4>{{correo}}</h4>
+
+
+    <!-- ANGULAR 16 -->
+    <ul>
+        <li *ngFor="let estudiante of estudiantes()">
+            {{estudiante.nombre}}
+
+            <div *ngIf="estudiante.nombre == 'Paula'; else bloqueElse">Este dato es de paula</div>
+            <ng-template #bloqueElse>Este NO es de paula</ng-template>
+        </li>
+    </ul>
+
+    <div [ngSwitch]="lenguaje()">
+        <p *ngSwitchCase="'PHP'">
+            <img src="https://play-lh.googleusercontent.com/cyTI43JCjc4L-e1m7FvJhI1VhmTSJ4AMNZoqhkp0Xm6_NOtHbaewp9UPVLw5R3-tZIU" alt="">
+        </p>
+        <p *ngSwitchCase="'JS'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" alt="">
+        </p>
+        <p *ngSwitchDefault>
+            <img src="https://algarabia.com/wp-content/uploads/2021/01/n%CC%83ero.jpeg" alt="">
+        </p>
+    </div>
+
+
+    <button class="h1 fw-bold btn btn-warning" (click)="clickSaludo()">Oprimeme</button>
+
+    <hr>
+    <!-- ANGULAR 17 -->
+
+    <h1>{{ atr_nombreSignal() }}</h1>
+    <input type="text" [value]="atr_nombreSignal()" (change)="capturarValor($event)">
+
+    <ul>
+        @for(estudiante of estudiantes(); track estudiante.id){
+        <li>
+            {{estudiante.nombre}} @if(estudiante.nombre == 'Paula'){
+            <div>Este dato es de paula</div>
+            }@else{
+            <div>Este NO es de paula</div>
+            }
+        </li>
+        }
+
+    </ul>
+
+
+</section>
