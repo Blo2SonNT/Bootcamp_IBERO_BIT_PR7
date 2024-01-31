@@ -2,11 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { Iestudaintes } from "../../models/estudiantes.model";
 
+import { FormControl, ReactiveFormsModule, Validators } from "@angular/forms";
+//ng g c components/nombre_componente
 @Component({
     selector: 'app-login',
     standalone: true,
     imports: [
         CommonModule,
+        ReactiveFormsModule
     ],
     templateUrl: './login.component.html',
     styleUrl: './login.component.css'
@@ -30,6 +33,36 @@ export class LoginComponent {
 
     atr_nombreSignal = signal("Juan")
     lenguaje = signal("PYTHON")
+
+
+    //reactiveFormsModule independiente
+    colorInput = new FormControl()
+
+    anchoCaja = new FormControl('50', {
+        validators: [
+            Validators.required,
+            Validators.min(50),
+        ]
+    })
+
+    valor: any =""
+
+    constructor(){
+        this.colorInput.valueChanges.subscribe(value => {
+            console.log(value)
+        })
+    }
+
+
+    cambiarAnchoCaja(){
+        console.log((this.anchoCaja.valid));
+        if(this.anchoCaja.valid){
+            console.log("Entro")
+            this.valor = this.anchoCaja.value
+            this.anchoCaja.setValue(this.valor)
+        }
+    }
+
 
     clickSaludo(){
         console.log(this.lenguaje());

@@ -82,4 +82,17 @@
     </ul>
 
 
+    <div>
+        <input type="color" [formControl]="colorInput">
+        <div>color: {{ colorInput.value }}</div>
+    </div>
+
+
+
+    <div class="caja" [style.backgroundColor]="colorInput.value"></div>
+
+    <input type="text" [formControl]="anchoCaja" (keydown.enter)="cambiarAnchoCaja()">
+    <div class="caja2" [style.width.px]="valor"></div>
+
+
 </section>
