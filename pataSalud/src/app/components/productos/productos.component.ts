@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { ProductoGrillaComponent } from "../templates/producto-grilla/producto-grilla.component";
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [],
+  imports: [ProductoGrillaComponent],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
 })
