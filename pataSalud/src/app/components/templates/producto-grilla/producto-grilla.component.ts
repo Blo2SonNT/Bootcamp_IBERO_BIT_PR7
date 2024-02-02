@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 
 @Component({
@@ -11,6 +11,14 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductoGrillaComponent {
     @Input({required:true}) imagenProducto!: string
-    @Input() precioProducto!: string
+    @Input() precioProducto!: string | number
     @Input() descripcionProducto!: string
+
+    @Output() agregarAlCarrito = new EventEmitter();
+
+
+    controlProductoCarrito(){
+        let dataProductoParaCarrito = {img: this.imagenProducto, des: this.descripcionProducto, precio: this.precioProducto}
+        this.agregarAlCarrito.emit(dataProductoParaCarrito)
+    }
 }
