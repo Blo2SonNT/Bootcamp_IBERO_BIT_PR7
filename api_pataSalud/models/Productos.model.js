@@ -12,7 +12,15 @@ const mascotasSchema = mongoose.Schema({
     descripcion: {
         type: String,
         required: true
-    }
+    },
+    nombre: {
+        type: String,
+        required: true
+    },
+    categoria: {
+        type: String,
+        required: true
+    },
 }, {
     timestamps: true,
     versionKey: false

@@ -47,12 +47,13 @@ exports.actualizarProducto = async(req, res) => {
                 res.status(404).send({ error: "No se ha encontrado el producto" })
                 return
             }
-            const { nombre, img, precio, desc } = req.body
+            const { nombre, img, precio, descripcion, categoria } = req.body
 
             dataProducto.nombre = nombre
             dataProducto.img = img
             dataProducto.precio = precio
-            dataProducto.desc = desc
+            dataProducto.descripcion = descripcion
+            dataProducto.categoria = categoria
 
             dataProducto = await ProductosModel.findOneAndUpdate({ _id: req.params.productoId }, dataProducto, { new: true })
             res.json(dataProducto)
@@ -78,6 +79,17 @@ exports.ConsultarUnProducto = async(req, res) => {
         }
     } catch (error) {
         console.log('error:', error)
+        res.status(500).send({ error: "Ha ocurrido algo, comuníquese con el administrador" })
+    }
+}
+
+
+exports.consultarPorCategoria = async(req, res) => {
+    try {
+        let categoriaBusqueda = req.body.categoria
+        let dataProductos = await ProductosModel.find({ categoria: categoriaBusqueda })
+        res.json(dataProductos)
+    } catch (error) {
         res.status(500).send({ error: "Ha ocurrido algo, comuníquese con el administrador" })
     }
 }

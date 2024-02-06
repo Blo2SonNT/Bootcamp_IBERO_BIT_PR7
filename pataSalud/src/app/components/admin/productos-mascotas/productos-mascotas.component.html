@@ -1,43 +1,57 @@
-<div class="container mt-5">
+<section class="container mt-5">
 
     <h1>Registro de productos</h1>
 
     <form class="row g-3" [formGroup]="formProductos" (ngSubmit)="submitForm()">
-        <div class="col-6">
+        <div class="col-6 pt-5">
             <div class="row">
-                <div class="col-md-6 py-5">
+                <div class="col-md-6">
                     <label for="txtNombreProducto" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="txtNombreProducto" formControlName="nombre">
-                    <div class="text-danger fw-bold opacity-0" [class.opacidadNO]="formProductos.get('nombre')?.hasError('required') && formProductos.get('nombre')?.touched">El nombre es obligatorio</div>
+                    <div class="text-danger fw-bold opacity-0" [class.opacidadNO]="formProductos.get('nombre')?.hasError('required') && formProductos.get('nombre')?.touched">
+                        El nombre es obligatorio</div>
                 </div>
-                <div class="col-md-6 py-5">
+                <div class="col-md-6">
                     <label for="txtPrecio" class="form-label">Precio</label>
                     <input type="text" class="form-control" id="txtPrecio" formControlName="precio">
-                    <div class="text-danger fw-bold opacity-0" [class.opacidadNO]="formProductos.get('precio')?.hasError('required') && formProductos.get('precio')?.touched">El precio es obligatorio</div>
-                    <div class="text-danger fw-bold opacity-0" [class.opacidadNO]="formProductos.get('precio')?.hasError('pattern') && formProductos.get('precio')?.touched">El precio no es valido</div>
+                    <div class="text-danger fw-bold opacity-0" [class.opacidadNO]="formProductos.get('precio')?.hasError('required') && formProductos.get('precio')?.touched">
+                        El precio es obligatorio</div>
+                    <div class="text-danger fw-bold opacity-0" [class.opacidadNO]="formProductos.get('precio')?.hasError('pattern') && formProductos.get('precio')?.touched">
+                        El precio no es valido</div>
 
                 </div>
                 <div class="col-12">
                     <label for="txtImagen" class="form-label">Imagen</label>
-                    <input type="text" class="form-control" id="txtImagen" formControlName="imagen">
+                    <input type="text" class="form-control" id="txtImagen" formControlName="img">
                     <div>
-                        @if(formProductos.get('imagen')?.hasError('required') && formProductos.get('imagen')?.touched){
+                        @if(formProductos.get('img')?.hasError('required') && formProductos.get('img')?.touched){
                         <div class="text-danger fw-bold">La imagen es obligatoria</div>
                         }
                     </div>
 
                     <div>
-                        @if(formProductos.get('imagen')?.hasError('pattern') && formProductos.get('imagen')?.touched){
+                        @if(formProductos.get('img')?.hasError('pattern') && formProductos.get('img')?.touched){
                         <div class="text-danger fw-bold">La url de la imagen no es valida</div>
                         }
                     </div>
-
+                    <label for="txtImagen" class="form-label py-3">Categoria</label>
+                    <select class="form-select" formControlName="categoria">
+                        <option value="" selected disabled>Seleccione una...</option>
+                        @for (categoria of listaCategorias(); track categoria.id) {
+                            <option [value]="categoria.nombre">{{ categoria.nombre }}</option>
+                        }
+                    </select>
+                    <div>
+                        @if(formProductos.get('categoria')?.hasError('required') && formProductos.get('categoria')?.touched){
+                        <div class="text-danger fw-bold">La categoria es obligatoria</div>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-6 pt-5 pb-4">
             <label for="txtDesc" class="form-label">Descripción</label>
-            <textarea class="form-control" id="txtDesc" cols="5" rows="8" formControlName="descripcion"></textarea>
+            <textarea class="form-control" id="txtDesc" cols="5" rows="10" formControlName="descripcion"></textarea>
             <div>
                 @if(formProductos.get('descripcion')?.hasError('required') && formProductos.get('descripcion')?.touched){
                 <div class="text-danger fw-bold">La descripción es obligatoria</div>
@@ -48,10 +62,57 @@
                 <div class="text-danger fw-bold">La descripción debe contener como mínimo 15 caracteres</div>
                 }
             </div>
-
+            <input type="text" [formControl]="inputHiddenID">
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary w-100 fw-bold h1">Crear</button>
         </div>
     </form>
-</div>
+</section>
+
+
+<section class="container mt-5">
+    <h1>Lista de productos</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle">
+            <thead>
+                <tr>
+                    <th class="text-center h2" scope="col" width="150px">Imagen</th>
+                    <th class="text-center h2" scope="col" width="500px">Nombre</th>
+                    <th class="text-center h2" scope="col">Categoria</th>
+                    <th class="text-center h2" scope="col">Precio</th>
+                    <th class="text-center h2" scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (producto of listaDeProductosActuales(); track producto._id) {
+                <tr>
+                    <td>
+                        <img [src]="producto.img" class="w-100" alt="">
+                    </td>
+                    <th scope="row">
+                        <h3 class="text-center">{{ producto.nombre }}</h3>
+                    </th>
+                    <th scope="row">
+                        <h3 class="text-center">{{ producto.categoria }}</h3>
+                    </th>
+                    <td>
+                        <h4 class="text-center">{{producto.precio | currency: '$'}}</h4>
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <div class="btn btn-warning mx-2" (click)="editarProducto(producto._id)">
+                                <i class="fa-solid fa-pencil fa-xl mx-2"></i>
+                            </div>
+                            <div class="btn btn-danger mx-2" (click)="eliminarProducto(producto._id, producto.nombre)">
+                                <i class="fa-solid fa-trash fa-xl mx-2"></i>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</section>

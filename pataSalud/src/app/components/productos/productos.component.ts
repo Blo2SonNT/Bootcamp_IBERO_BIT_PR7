@@ -11,6 +11,17 @@ import { PatasaludAPIService } from "../../services/patasalud-api.service";
     styleUrl: './productos.component.css'
 })
 export class ProductosComponent {
+
+    listaCategorias = signal([
+        { id: 1, nombre: 'Juguetes' },
+        { id: 2, nombre: 'Comidas secas' },
+        { id: 3, nombre: 'Comidas humedas' },
+        { id: 4, nombre: 'Snacks' },
+        { id: 5, nombre: 'Aseo' },
+        { id: 6, nombre: 'Accesorios' },
+        { id: 7, nombre: 'Medicamentos' },
+    ])
+
     // productosData = signal([
     //     {img: "https://www.alfaveterinaria.es/cache/a/2/4/8/7/a24874d07709cb19fde50ed818cd10c9be3cb387.jpg", precio: 85000, desc: "Cama para perro mediana"},
     //     {img: "assets/img/productos/2.png", precio: 43500, desc: "Hueso de ule"},
@@ -37,9 +48,27 @@ export class ProductosComponent {
         })
     }
 
+    changeCategoria(event: Event){
+        const valorInput = event.target as HTMLInputElement
+        console.log(valorInput.value);
+        this.productosServices.postProductosXCategoria(valorInput.value).subscribe({
+            next: (productos) => {
+                this.productosData.set(productos)
+                console.log("-----------> "+this.productosData());
+
+            },
+            error: (err) => {
+                console.log(err);
+            }
+        })
+    }
+
 
     productoDesdeMiHijo(event: string){
         console.log("Alumbrame bien chingada madre")
         console.log(event);
     }
+
+
+
 }

@@ -1,8 +1,18 @@
 <section class="container">
     <h3 class="fuente-negocio text-center h1 my-5">Productos destacados</h3>
+    <div class="d-flex justify-content-between my-4">
+        <h5>Escoge la categoria de tu preferencia: </h5>
+        <select class="form-select" (change)="changeCategoria($event)">
+            <option value="" selected disabled>Seleccione una...</option>
+            @for (categoria of listaCategorias(); track categoria.id) {
+            <option [value]="categoria.nombre">{{ categoria.nombre }}</option>
+            }
+        </select>
+    </div>
+
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        @for (producto of productosData(); track producto.desc) {
-        <app-producto-grilla [precioProducto]="producto.precio" [imagenProducto]="producto.img" [descripcionProducto]="producto.desc" (agregarAlCarrito)="productoDesdeMiHijo($event)">
+        @for (producto of productosData(); track producto.descripcion) {
+        <app-producto-grilla [precioProducto]="producto.precio" [imagenProducto]="producto.img" [descripcionProducto]="producto.nombre" (agregarAlCarrito)="productoDesdeMiHijo($event)">
         </app-producto-grilla>
         }
     </div>

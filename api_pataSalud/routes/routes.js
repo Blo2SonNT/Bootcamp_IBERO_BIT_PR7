@@ -17,6 +17,7 @@ router.get('/consultar-producto/:productoId', productosController.ConsultarUnPro
 router.post('/crear-producto', productosController.crearProductos)
 router.put('/actualizar-producto/:productoId', productosController.actualizarProducto)
 router.delete('/eliminar-producto/:productoId', productosController.eliminarProducto)
+router.post('/consulta-x-categoria', productosController.consultarPorCategoria)
 
 // ? Rutas X
 router.get('consultar/medicamentos', medicamentosController.consultarMedicamentos)
