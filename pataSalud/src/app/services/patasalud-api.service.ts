@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +13,8 @@ export class PatasaludAPIService {
     constructor() { }
 
     getProductos(){
-        return this.http.get(`${this.urlApi}/consultar-productos`)
+        const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')
+        return this.http.get(`${this.urlApi}/consultar-productos`, {headers})
     }
 
     getProducto(idProducto: string){
@@ -36,7 +37,14 @@ export class PatasaludAPIService {
         return this.http.put(`${this.urlApi}/actualizar-producto/${idProducto}`, dataProducto)
     }
 
+    estaLogueado() : boolean{
+        let estado = (sessionStorage.getItem('token')) ? true : false
+        return estado
+    }
 
+    postIngresoUsuario(dataLogin:any){
+        return this.http.post(`${this.urlApi}/ingreso`, dataLogin)
+    }
 
 
 }
